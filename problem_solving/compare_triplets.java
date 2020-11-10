@@ -20,7 +20,7 @@ public class compare_triplets{
         else if (b2>a2)
         bb++;
         if(a3>b3)
-        aa++;//
+        aa++;
         else if(b3>a3)
         bb++;
         System.out.println(aa+" "+bb);
