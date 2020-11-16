@@ -15,5 +15,5 @@ public class sales{
             c+=arr[i]/2;
         }
         System.out.println(c);
-    }//
+    }
 }
