@@ -9,10 +9,13 @@ public class magicsquare{
                 arr[i][j]=scn.nextInt();
             }
         }
-        int a=solve(arr,0,new boolean[9],0);
+        int []dp=new int[9];
+        for(int i=0;i<9;i++)
+        dp[i]=1000000;
+        int a=solve(arr,0,new boolean[9],0,dp);
         System.out.println(a);
     }
-    public static int solve(int[][]arr,int idx,boolean[]bool,int cost){
+    public static int solve(int[][]arr,int idx,boolean[]bool,int cost,int[]dp){
         if(idx==9){
         boolean flag=check(arr);
         if(flag)
@@ -20,10 +23,13 @@ public class magicsquare{
         else
         return 1000000;
         }
+        if(dp[idx]!=1000000)
+        return dp[idx];
+
         int a1=1000000;
         if(!bool[idx]){
             bool[idx]=true;
-            a1=solve(arr,idx+1,bool,cost);
+            a1=solve(arr,idx+1,bool,cost,dp);
             bool[idx]=false;
         }
         int a2=1000000;
@@ -35,13 +41,13 @@ public class magicsquare{
                 bool[idx]=true;
                 int temp=arr[r][c];
                 arr[r][c]=i;
-                a2=solve(arr,idx+1,bool,cost+(temp>i?temp-i:i-temp));
+                a2=solve(arr,idx+1,bool,cost+(temp>i?temp-i:i-temp),dp);
                 arr[r][c]=temp;
                 bool[idx]=false;
             }
             co=Math.min(co,a2);
         }
-        return co;
+        return dp[idx]=co;
     }
     public static boolean check(int[][]arr){
 if((arr[0][0]+arr[0][1]+arr[0][2])==(arr[1][0]+arr[1][1]+arr[1][2]) && (arr[0][0]+arr[0][1]+arr[0][2])==(arr[2][0]+arr[2][1]+arr[2][2])
