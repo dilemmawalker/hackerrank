@@ -18,12 +18,10 @@ public class picking_no{
         {
             return 0;
         }
-        if(dp[idx]!=-1)
-        return dp[idx];
+        // if(dp[idx]!=-1)
+        // return dp[idx];
         int c=0;
-        // if((arr[idx]-prev)==0 && count!=0)
-        // c=Math.max(solve(arr,idx+1,count+1,prev),c);
-        // else{
+        
         c=Math.max(solve(arr,idx+1,count,min,max,dp),c);
         if(count==0 || ((((arr[idx]-min)==1) ||((min-arr[idx])==1)||((min-arr[idx]==0))) && 
         (((arr[idx]-max)==1) ||((max-arr[idx])==1)|| ((max-arr[idx])==0)))){
@@ -36,7 +34,7 @@ public class picking_no{
             min=m1;
             max=m2;
         }
-        // }
+        
         return dp[idx]=c;
     }
 }
