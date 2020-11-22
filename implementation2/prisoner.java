@@ -8,7 +8,13 @@ public class prisoner{
             int n=scn.nextInt();
             int m=scn.nextInt();
             int s=scn.nextInt();
-            m=m%n;
+            if(m>n){
+            m=(m%(n));
+            }
+            // System.out.println(m);
+            if(m==0)
+            s=s+1;
+            else
             while(--m>0){
                 s+=1;
             }
