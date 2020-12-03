@@ -7,7 +7,7 @@ public class picking_no{
             int[]arr=new int[n];
             for(int i=0;i<n;i++)
             arr[i]=scn.nextInt();
-        int[]dp=new int[n+1];
+        Hashmap[]dp=new int[n+1];
         for(int i=0;i<n;i++)
         dp[i]=-1;
            int a= solve(arr,0,0,1000,0,dp);
@@ -20,7 +20,7 @@ public class picking_no{
         }
         // if(dp[idx]!=-1)
         // return dp[idx];
-        int c=0;
+        int c=-1;
         
         c=Math.max(solve(arr,idx+1,count,min,max,dp),c);
         if(count==0 || ((((arr[idx]-min)==1) ||((min-arr[idx])==1)||((min-arr[idx]==0))) && 
