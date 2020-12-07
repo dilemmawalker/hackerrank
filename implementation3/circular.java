@@ -15,7 +15,7 @@ public class circular{
             int a=scn.nextInt();
             a=(a+k)<n?(a+k):(a+k-1);
             a=a%n;
-            System.out.println(arr[a]);
+            System.out.println(arr[a]);//
         }
     }
 }
