@@ -13,8 +13,8 @@ public class circular{
         }
         for(int i=0;i<q;i++){
             int a=scn.nextInt();
-            a+=k-1;
-            a%=n;
+            a=(a+k)<n?(a+k):(a+k-1);
+            a=a%n;
             System.out.println(arr[a]);
         }
     }
